@@ -54,7 +54,7 @@ const possibleTimes = [
     a grid of different possible times that users can select and displays
     times in green if they're currently available.
 */
-export const MakeAReservationPage = ({ restaurant, onClose = () => {} }) => {
+export const MakeAReservationForm = ({ restaurant, onClose = () => {} }) => {
     const [availableTimes, setAvailableTimes] = useState([]);
     const [availableTimesId, setAvailableTimesId] = useState('');
 

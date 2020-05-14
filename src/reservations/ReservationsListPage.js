@@ -12,7 +12,7 @@ import {
     Modal,
     SelectionList,
 } from '../ui';
-import { ReservationDetailPage } from './ReservationDetailPage';
+import { ReservationDetailForm } from './ReservationDetailForm';
 
 /*
     This page displays all of the user's current reservations in a list
@@ -61,7 +61,7 @@ export const ReservationsListPage = () => {
         <Modal
             isOpen={detailModalIsOpen}
             onRequestClose={onRequestCloseModal}>
-                <ReservationDetailPage
+                <ReservationDetailForm
                     reservation={selectedReservation}
                     onClose={onRequestCloseModal} />
         </Modal>

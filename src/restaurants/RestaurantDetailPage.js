@@ -13,7 +13,7 @@ import {
     Thumbnail,
 } from '../ui';
 import { ReviewListItem } from '../reviews';
-import { MakeAReservationPage } from '../reservations';
+import { MakeAReservationForm } from '../reservations';
 
 const ThumbnailWrap = styled.div`
     display: flex;
@@ -94,7 +94,7 @@ export const RestaurantDetailPage = () => {
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={() => setModalIsOpen(false)}>
-                    <MakeAReservationPage restaurant={restaurant} onClose={() => setModalIsOpen(false)} />
+                    <MakeAReservationForm restaurant={restaurant} onClose={() => setModalIsOpen(false)} />
             </Modal>
         </MaxWidthContentSection>
     )

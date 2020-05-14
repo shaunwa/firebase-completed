@@ -1,4 +1,4 @@
-export { MakeAReservationPage } from './MakeAReservationPage';
-export { ReservationDetailPage } from './ReservationDetailPage';
+export { MakeAReservationForm } from './MakeAReservationForm';
+export { ReservationDetailForm } from './ReservationDetailForm';
 export { ReservationsListItem } from './ReservationsListItem';
 export { ReservationsListPage } from './ReservationsListPage';

@@ -45,7 +45,7 @@ const withTopMargin = px => ({ marginTop: `${px}px` });
     basic details about the reservation, and also allows users
     to cancel their reservation.
 */
-export const ReservationDetailPage = ({ reservation, onClose = () => {} }) => {
+export const ReservationDetailForm = ({ reservation, onClose = () => {} }) => {
     const { restaurant, date, time } = reservation || {};
     const { name, address = {}, imageUrl } = restaurant || {};
 
