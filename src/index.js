@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import * as firebase from 'firebase/app';
 import 'firebase/analytics';
 import 'firebase/auth';
+import 'firebase/firestore';
 import './index.css';
 import { App, serviceWorker } from './app';
 
