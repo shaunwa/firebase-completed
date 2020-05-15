@@ -3,6 +3,7 @@
 // import from other directories
 export { CreateAccountPage } from './CreateAccountPage';
 export { EmailConfirmationLanderPage } from './EmailConfirmationLanderPage';
+export { getCurrentUser } from './getCurrentUser';
 export { ProtectedRoute } from './ProtectedRoute';
 export { SignInForm } from './SignInForm';
 export { SignInPage } from './SignInPage';
