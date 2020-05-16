@@ -5,6 +5,7 @@ import {
     Heading,
     Thumbnail,
 } from '../ui';
+import { cancelReservation } from './cancelReservation';
 
 const Form = styled.div`
     width: 350px;
@@ -50,7 +51,9 @@ export const ReservationDetailForm = ({ reservation, onClose = () => {} }) => {
     const { name, address = {}, imageUrl } = restaurant || {};
 
     const onClickCancel = async () => {
-        // Firebase code goes here
+        await cancelReservation(reservation.id);
+        alert('Successfully cancelled reservation!');
+        onClose();
     }
 
     return (
