@@ -6,6 +6,7 @@ import {
     HeadingSmall,
     TextInput,
 } from '../ui';
+import { makeReservation } from './makeReservation';
 import { subscribeToAvailableTimes } from './subscribeToAvailableTimes';
 
 const Content = styled.div`
@@ -84,7 +85,9 @@ export const MakeAReservationForm = ({ restaurant, onClose = () => {} }) => {
     }, [selectedDate, restaurant.id]);
 
     const onSubmit = async () => {
-        // Firebase code goes here
+        await makeReservation(availableTimesId, selectedTime, numberOfPeople);
+        alert('Reservation successful!');
+        onClose();
     }
 
     return (
