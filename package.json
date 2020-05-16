@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.5.0",
     "@testing-library/user-event": "7.2.1",
+    "concurrently": "^5.2.0",
     "firebase": "^7.14.4",
     "isemail": "3.2.0",
     "moment": "2.25.3",
@@ -26,7 +27,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "functions:build": "npm run build --prefix ./functions",
-    "functions:deploy": "npm run functions:build && firebase deploy --only functions"
+    "functions:deploy": "npm run functions:build && firebase deploy --only functions",
+    "functions:watch": "nodemon --watch ./functions --ignore ./functions/build --exec 'npm run functions:build'",
+    "functions:dev": "concurrently 'npm run functions:watch' 'firebase emulators:start --only functions'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

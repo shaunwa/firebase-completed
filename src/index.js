@@ -24,6 +24,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+firebase.functions().useFunctionsEmulator('http://localhost:5001');
+
 // This is where the magic happens. React renders our App component
 // inside the div with the id "root"
 ReactDOM.render(
