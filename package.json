@@ -1,6 +1,7 @@
 {
   "name": "firebase-demo-app-starter",
   "version": "0.1.0",
+  "proxy": "https://us-central1-restaurant-reservations-144e5.cloudfunctions.net/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "4.9.14",

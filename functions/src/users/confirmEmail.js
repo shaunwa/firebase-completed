@@ -26,7 +26,7 @@ export const confirmEmail = functions.https.onRequest(async (req, res) => {
 
     await auth.updateUser(authUid, { emailVerified: true });
     await store.collection('users')
-        .doc(authId)
+        .doc(authUid)
         .set({
             emailAddress,
             firstName,
