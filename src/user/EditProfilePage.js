@@ -9,6 +9,8 @@ import {
     TextArea,
     UploadSingleFileButton,
 } from '../ui';
+import { getCurrentUserInfo } from './getCurrentUserInfo';
+import { updateCurrentUserInfo } from './updateCurrentUserInfo';
 
 const Form = styled.div`
     width: 600px;
@@ -44,7 +46,15 @@ export const EditProfilePage = () => {
     const history = useHistory();
 
     useEffect(() => {
-        // Firebase code for loading current user info goes here
+        const loadUserInfo = async () => {
+            const userInfo = await getCurrentUserInfo();
+            setFirstName(userInfo.firstName);
+            setLastName(userInfo.lastName);
+            setBio(userInfo.bio);
+            setIsLoading(false);
+        }
+
+        loadUserInfo();
     }, []);
     
     const handleFileSelect = file => {
@@ -52,7 +62,13 @@ export const EditProfilePage = () => {
     }
 
     const onSubmitChanges = async () => {
-        // Firebase code for saving user's changes goes here
+        const changes = {
+            firstName,
+            lastName,
+            bio,
+        }
+        await updateCurrentUserInfo(changes);
+        history.push('/');
     }
 
     return (
