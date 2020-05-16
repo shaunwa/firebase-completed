@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReservationsListItem } from './ReservationsListItem';
 import { SignOutButton } from '../auth';
 import {
@@ -13,6 +13,7 @@ import {
     SelectionList,
 } from '../ui';
 import { ReservationDetailForm } from './ReservationDetailForm';
+import { subscribeToCurrentUserReservations } from './subscribeToCurrentUserReservations';
 
 /*
     This page displays all of the user's current reservations in a list
@@ -31,6 +32,14 @@ export const ReservationsListPage = () => {
         setSelectedReservation(undefined);
         setDetailModalIsOpen(false);
     }
+
+    useEffect(() => {
+        const unsubscribe = subscribeToCurrentUserReservations(results => {
+            setReservations(results);
+        });
+
+        return unsubscribe;
+    }, []);
 
     return (
         <>

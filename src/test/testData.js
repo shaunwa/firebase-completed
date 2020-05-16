@@ -12,7 +12,7 @@ const twoWeeksTwoDaysFromNow = moment().add(2, 'weeks').add(2, 'days');
 const reservations = [{
     id: '12345',
     restaurantId: '123',
-    userId: 'PgjNHDAF6DRcolNIf03o4oe4IKF2', // replace these userIds with your own
+    userId: 'LkYZ65BSS1OiCJi2vVjz63f6LZ82', // replace these userIds with your own
     date: dateFormat(twoWeeksFromNow),
     time: '7:00PM',
     numberOfPeople: 2,
@@ -20,7 +20,7 @@ const reservations = [{
 }, {
     id: '12346',
     restaurantId: '345',
-    userId: 'PgjNHDAF6DRcolNIf03o4oe4IKF2',
+    userId: 'LkYZ65BSS1OiCJi2vVjz63f6LZ82',
     date: dateFormat(twoWeeksOneDayFromNow),
     time: '6:30PM',
     numberOfPeople: 2,
@@ -28,7 +28,7 @@ const reservations = [{
 }, {
     id: '12347',
     restaurantId: '678',
-    userId: 'PgjNHDAF6DRcolNIf03o4oe4IKF2',
+    userId: 'LkYZ65BSS1OiCJi2vVjz63f6LZ82',
     date: dateFormat(twoWeeksTwoDaysFromNow),
     time: '8:00PM',
     numberOfPeople: 4,
@@ -39,11 +39,11 @@ const reviews = [{
     id: '111111',
     reservationId: '12345',
     restaurantId: '123',
-    userId: 'PgjNHDAF6DRcolNIf03o4oe4IKF2',
+    userId: 'LkYZ65BSS1OiCJi2vVjz63f6LZ82',
     rating: 4.0,
-    // replace the "fb-example-app-2" with the app id you choose during setup. These links won't
+    // replace the "<your-project-id>" with the app id you choose during setup. These links won't
     // point to anything until we upload these files to Cloud Storage.
-    photoUrls: ['https://storage.googleapis.com/fb-example-app-2.appspot.com/reviewPhotos/hemingways-review-1.jpeg'],
+    photoUrls: ['https://storage.googleapis.com/restaurant-reservations-144e5.appspot.com/reviewPhotos/hemingways-review-1.jpeg'],
     text: `
         I really like this place. Their take on pot roast is sublime, and
         my mouth is watering right now just thinking about it. The one thing
@@ -103,7 +103,7 @@ const dateAvailabilities = [{
 const restaurants = [{
     id: '123',
     name: 'Hemingway\'s',
-    imageUrl: 'https://storage.googleapis.com/fb-example-app-2.appspot.com/restaurants/hemingways.jpeg',
+    imageUrl: 'https://storage.googleapis.com/restaurant-reservations-144e5.appspot.com/restaurants/hemingways.jpeg',
     rating: 4.0,
     address: {
         street: '123 Someone Street',
@@ -121,7 +121,7 @@ const restaurants = [{
 }, {
     id: '345',
     name: 'Ben\'s Burgers',
-    imageUrl: 'https://storage.googleapis.com/fb-example-app-2.appspot.com/restaurants/bens-burgers.jpeg',
+    imageUrl: 'https://storage.googleapis.com/restaurant-reservations-144e5.appspot.com/restaurants/bens-burgers.jpeg',
     rating: 3.5,
     address: {
         street: '5 Burger Lane',
@@ -137,7 +137,7 @@ const restaurants = [{
 },{
     id: '678',
     name: 'Le Mollusc',
-    imageUrl: 'https://storage.googleapis.com/fb-example-app-2.appspot.com/restaurants/le-mollusc.jpeg',
+    imageUrl: 'https://storage.googleapis.com/restaurant-reservations-144e5.appspot.com/restaurants/le-mollusc.jpeg',
     rating: 4.5,
     address: {
         street: '7 Fancy Avenue',
