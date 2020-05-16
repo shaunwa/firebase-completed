@@ -1,1 +1,5 @@
-export { helloWorld } from './helloWorld';
+import { functions as userFunctions } from './users';
+
+export default {
+    ...userFunctions,
+};
