@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {
     Button,
@@ -6,6 +6,7 @@ import {
     HeadingSmall,
     TextInput,
 } from '../ui';
+import { subscribeToAvailableTimes } from './subscribeToAvailableTimes';
 
 const Content = styled.div`
     min-height: 375px;
@@ -65,6 +66,23 @@ export const MakeAReservationForm = ({ restaurant, onClose = () => {} }) => {
     const [numberOfPeople, setNumberOfPeople] = useState(2);
     const [datePickerFocused, setDatePickerFocused] = useState(false);
 
+    useEffect(() => {
+        if (selectedDate) {
+            const formattedDate = selectedDate.format('MMMM DD, YYYY');
+
+            const unsubscribe = subscribeToAvailableTimes(
+                restaurant.id,
+                formattedDate,
+                result => {
+                    setAvailableTimes(result.availableTimes);
+                    setAvailableTimesId(result.id);
+                }
+            );
+
+            return unsubscribe;
+        }
+    }, [selectedDate, restaurant.id]);
+
     const onSubmit = async () => {
         // Firebase code goes here
     }
@@ -87,7 +105,7 @@ export const MakeAReservationForm = ({ restaurant, onClose = () => {} }) => {
                         (timeGroup, i) => (
                             <tr key={i}>
                                 {timeGroup.map(time => {
-                                    const isAvailable = false; // We'll use Firebase data to populate this
+                                    const isAvailable = availableTimes.includes(time);
                                     return (
                                         <TimeOption
                                             key={time}
