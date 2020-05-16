@@ -11,6 +11,8 @@ import {
     Thumbnail,
     UploadMultipleFilesButton,
 } from '../ui';
+import { getRestaurant } from '../restaurants';
+import { submitReview } from './submitReview';
 import { mapAsync, readFile } from '../util';
 
 const Content = styled.div`
@@ -56,7 +58,13 @@ export const WriteAReviewPage = () => {
     const { name, imageUrl } = restaurant || {};
 
     useEffect(() => {
-        // Firebase code for loading the restaurant goes here
+        const loadRestaurant = async () => {
+            const results = await getRestaurant(id);
+            setRestaurant(results);
+            setIsLoading(false);
+        }
+
+        loadRestaurant();
     }, [id]);
 
     // Selecting files can be a tiny bit complex, so I've taken
@@ -70,7 +78,14 @@ export const WriteAReviewPage = () => {
     const onClickSubmitReview = async () => {
         // Check to make sure the user has actually filled out the form
         if (ratingValue > 0 || commentsValue.length > 0) {
-            // Firebase code for submitting review goes here
+            const newReview = {
+                rating: ratingValue,
+                text: commentsValue,
+                imageUrls: [],
+            };
+
+            await submitReview(id, newReview);
+            history.push('/review/thank-you');
         } else {
             setShowError(true);
         }
