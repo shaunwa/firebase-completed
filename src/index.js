@@ -5,6 +5,7 @@ import 'firebase/analytics';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/functions';
+import 'firebase/storage';
 import './index.css';
 import { App, serviceWorker } from './app';
 

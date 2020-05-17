@@ -9,6 +9,7 @@ import {
     TextArea,
     UploadSingleFileButton,
 } from '../ui';
+import { uploadFile } from '../util';
 import { getCurrentUserInfo } from './getCurrentUserInfo';
 import { updateCurrentUserInfo } from './updateCurrentUserInfo';
 
@@ -48,9 +49,9 @@ export const EditProfilePage = () => {
     useEffect(() => {
         const loadUserInfo = async () => {
             const userInfo = await getCurrentUserInfo();
-            setFirstName(userInfo.firstName);
-            setLastName(userInfo.lastName);
-            setBio(userInfo.bio);
+            setFirstName(userInfo.firstName || '');
+            setLastName(userInfo.lastName || '');
+            setBio(userInfo.bio || '');
             setIsLoading(false);
         }
 
@@ -62,12 +63,20 @@ export const EditProfilePage = () => {
     }
 
     const onSubmitChanges = async () => {
+        const profilePictureUrl = profilePictureFile
+            ? await uploadFile(profilePictureFile, 'profilePictures')
+            : null;
+    
         const changes = {
             firstName,
             lastName,
             bio,
         }
-        await updateCurrentUserInfo(changes);
+
+        await updateCurrentUserInfo(profilePictureUrl
+            ? { ...changes, profilePictureUrl }
+            : changes);
+
         history.push('/');
     }
 
