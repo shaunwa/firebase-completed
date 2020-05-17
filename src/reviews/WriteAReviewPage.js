@@ -13,7 +13,7 @@ import {
 } from '../ui';
 import { getRestaurant } from '../restaurants';
 import { submitReview } from './submitReview';
-import { mapAsync, readFile } from '../util';
+import { mapAsync, readFile, uploadFile } from '../util';
 
 const Content = styled.div`
     margin: 0 32px;
@@ -78,10 +78,14 @@ export const WriteAReviewPage = () => {
     const onClickSubmitReview = async () => {
         // Check to make sure the user has actually filled out the form
         if (ratingValue > 0 || commentsValue.length > 0) {
+            const imageUrls = await mapAsync(imageFiles, async file => {
+                return await uploadFile(file, 'reviewPhotos');
+            });
+            
             const newReview = {
                 rating: ratingValue,
                 text: commentsValue,
-                imageUrls: [],
+                imageUrls,
             };
 
             await submitReview(id, newReview);

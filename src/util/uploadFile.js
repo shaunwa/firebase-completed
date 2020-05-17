@@ -6,7 +6,7 @@ const prefix = 'https://storage.googleapis.com/restaurant-reservations-144e5.app
 export const uploadFile = async (file, folderName) => {
     const fileExtension = file.type === 'image/png'
         ? '.png'
-        : fileExtension === 'image/jpeg'
+        : file.type === 'image/jpeg'
             ? '.jpg'
             : '';
 
