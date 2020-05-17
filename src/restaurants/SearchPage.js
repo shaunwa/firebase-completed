@@ -9,6 +9,7 @@ import {
     TextInput,
 } from '../ui';
 import { RestaurantListItem } from './RestaurantListItem';
+import { getRecommendations } from './getRecommendations';
 
 const SearchSection = styled.div`
     align-content: center;
@@ -37,7 +38,12 @@ export const SearchPage = () => {
     }
 
     useEffect(() => {
-        // Firebase code for loading initial recommendations goes here
+        const loadRecommendations = async () => {
+            const results = await getRecommendations();
+            setRecommendations(results);
+        }
+
+        loadRecommendations();
     }, []);
 
     useEffect(() => {
