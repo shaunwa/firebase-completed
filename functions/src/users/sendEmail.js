@@ -5,8 +5,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: 'shaun.firebase.test1@gmail.com',
-        pass: 'u8tPtAws4SP6Kr5Y',
+        user: '<your email here>',
+        pass: '<your password here>',
     }
 });
 
