@@ -11,7 +11,7 @@
     "@testing-library/user-event": "7.2.1",
     "firebase": "^7.14.4",
     "isemail": "3.2.0",
-    "moment": "2.25.3",
+    "moment": "2.29.4",
     "react": "^16.13.1",
     "react-dates": "21.8.0",
     "react-dom": "^16.13.1",
