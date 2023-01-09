@@ -14,8 +14,8 @@
     "node": "8"
   },
   "dependencies": {
-    "firebase-admin": "^8.10.0",
-    "firebase-functions": "^3.6.1",
+    "firebase-admin": "^11.4.1",
+    "firebase-functions": "^3.24.1",
     "nodemailer": "^6.4.6",
     "regenerator-runtime": "^0.13.5",
     "uuid": "^8.0.0"
